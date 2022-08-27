@@ -1,25 +1,40 @@
-import { createContext, useState } from "react";
+import React, { createContext, useState } from "react";
 
-export const CamperContext = createContext();
 
-const initialState = {
-    camperList: [],
-    searchWord: ''
+interface ProviderProps {
+    children: React.ReactNode
 }
 
-export const CamperProvider = ({children}) => {
-    const [currentSearch, setCurrentSearch] = useState(initialState);
+interface CamperInterface {
+    id: number,
+    image: string,
+    name: string
+}
 
-    const changeSearch = (searchWord) => {
-        if (searchWord.trim().length !== 0) {
-            setCurrentSearch((prevState) => {return {...prevState, searchWord}});
-        }
-    }
+interface stateProps {
+    camperList: CamperInterface[]
+}
 
-    const updateCamperList = (camperList) => setCurrentSearch((prevState) => {return {...prevState, camperList}})
+const initialState = {
+    camperList: []
+}
+
+interface ICamperContext {
+    camperList: Array<CamperInterface>;
+    updateCamperList?: (camperList: CamperInterface[]) => void;
+}
+
+
+export const CamperContext = createContext<ICamperContext>(initialState);
+
+export const CamperProvider: React.FC<ProviderProps>  = ({children}) => {
+    const [camperList, setCamperList] = useState<CamperInterface[]>(initialState.camperList);
+
+
+    const updateCamperList = (camperList: CamperInterface[]):void => setCamperList(camperList)
 
     return(
-        <CamperContext.Provider value={{updateCamperList, changeSearch, currentSearch}}>
+        <CamperContext.Provider value={{updateCamperList, camperList}}>
             {children}
         </CamperContext.Provider>
     )

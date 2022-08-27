@@ -1,16 +1,21 @@
-import {Wrapper,ImageContainer,Image, Heading} from './Camper-card.styles';
+import React from 'react';
 
-function CamperCard({image, heading}){
+interface Props {
+    image: string,
+    heading: string
+}
+
+const CamperCard: React.FC<Props> = ({image, heading}) =>{
 
     return(
-        <Wrapper>
-            <ImageContainer>
-                <Image src={image}/>
-            </ImageContainer>
+        <div>
             <div>
-                <Heading>{heading}</Heading>
+                <img src={image}/>
             </div>
-        </Wrapper>
+            <div>
+                <h2>{heading}</h2>
+            </div>
+        </div>
     )
 }
 
