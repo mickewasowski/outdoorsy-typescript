@@ -11,17 +11,14 @@ interface ICamper {
     image: string
 }
 
-// interface stateProps {
-//     camperList: CamperInterface[]
-// }
-
 const initialState = {
-    camperList: []
+    camperList: [],
+    updateCamperList: function() {}
 }
 
 interface ICamperContext {
     camperList: Array<ICamper>;
-    updateCamperList?: (camperList: ICamper[]) => void;
+    updateCamperList: (camperList: ICamper[]) => void;
 }
 
 
