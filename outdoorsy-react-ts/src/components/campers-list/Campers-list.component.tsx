@@ -3,9 +3,9 @@ import { CamperContext } from "../../contexts/CamperContext";
 import CamperCard from "../camper-card/Camper-card.component";
 
 interface Camper {
-    id: number,
-    image: string,
-    name: string
+    id: number | undefined,
+    name: string,
+    image: string
 }
 
 const CampersList: React.FC = () => {

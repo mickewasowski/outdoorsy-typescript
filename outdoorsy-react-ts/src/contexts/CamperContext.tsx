@@ -1,37 +1,37 @@
 import React, { createContext, useState } from "react";
 
 
-interface ProviderProps {
+interface IProviderProps {
     children: React.ReactNode
 }
 
-interface CamperInterface {
-    id: number,
-    image: string,
-    name: string
+interface ICamper {
+    id: number | undefined,
+    name: string,
+    image: string
 }
 
-interface stateProps {
-    camperList: CamperInterface[]
-}
+// interface stateProps {
+//     camperList: CamperInterface[]
+// }
 
 const initialState = {
     camperList: []
 }
 
 interface ICamperContext {
-    camperList: Array<CamperInterface>;
-    updateCamperList?: (camperList: CamperInterface[]) => void;
+    camperList: Array<ICamper>;
+    updateCamperList?: (camperList: ICamper[]) => void;
 }
 
 
 export const CamperContext = createContext<ICamperContext>(initialState);
 
-export const CamperProvider: React.FC<ProviderProps>  = ({children}) => {
-    const [camperList, setCamperList] = useState<CamperInterface[]>(initialState.camperList);
+export const CamperProvider: React.FC<IProviderProps>  = ({children}) => {
+    const [camperList, setCamperList] = useState<ICamper[]>(initialState.camperList);
 
 
-    const updateCamperList = (camperList: CamperInterface[]):void => setCamperList(camperList)
+    const updateCamperList = (camperList: ICamper[]):void => setCamperList(camperList)
 
     return(
         <CamperContext.Provider value={{updateCamperList, camperList}}>
