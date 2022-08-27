@@ -8,12 +8,12 @@ interface Props {
 const CamperCard: React.FC<Props> = ({image, heading}) =>{
 
     return(
-        <div>
+        <div className='flex items-center gap-4 hover:bg-[#b2b4b7] hover:cursor-pointer rounded-xl'>
             <div>
-                <img src={image}/>
+                <img className='w-[13rem] h-[9rem] rounded-xl'src={image}/>
             </div>
             <div>
-                <h2>{heading}</h2>
+                <h2 className='text-2xl'>{heading}</h2>
             </div>
         </div>
     )

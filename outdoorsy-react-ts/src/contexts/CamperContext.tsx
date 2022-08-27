@@ -1,6 +1,5 @@
 import React, { createContext, useState } from "react";
 
-
 interface IProviderProps {
     children: React.ReactNode
 }

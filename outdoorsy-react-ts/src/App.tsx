@@ -7,7 +7,7 @@ import CampersList from './components/campers-list/Campers-list.component';
 const App: React.FC = () => {
 
   return (
-    <div className="">
+    <div className="w-11/12 m-auto pt-[2rem]">
       <Input />
       <CampersList />
     </div>

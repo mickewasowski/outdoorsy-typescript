@@ -34,10 +34,7 @@ const Input: React.FC = () => {
             }
             return res.json()
         })
-        .then((result) => {
-            console.log(result);
-            
-            handleResponseData(result)})
+        .then((result) => handleResponseData(result))
         .catch(err => console.log(err))
     }, [inputString]);
 
@@ -76,12 +73,12 @@ const Input: React.FC = () => {
     }
 
     return(
-        <div>
-            <div>
-                <input id='input-field' onChange={handleInputChange}/>
-                <button onClick={handleClearInput}>X</button>
+        <div className='w-full flex-col mb-[1rem]'>
+            <div className='mb-[1rem] h-10 outline-2 outline-[#b2b4b7] outline rounded-xl flex justify-around'>
+                <input id='input-field' className='w-4/5 text-2xl focus:outline-none' onChange={handleInputChange}/>
+                <button className='text-2xl text-[#b2b4b7] hover:text-black' onClick={handleClearInput}>X</button>
             </div>
-            <p>Campers: {count}</p>
+            <p className='text-center text-2xl'>Campers: {count}</p>
         </div>
     )
 }

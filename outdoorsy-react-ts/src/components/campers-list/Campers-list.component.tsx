@@ -16,11 +16,11 @@ const CampersList: React.FC = () => {
     }, [camperList]);
 
     return(
-        <div>
+        <div className="flex flex-col gap-7 mb-[2rem]">
             {
                 camperList.length > 0
                 ? camperList.map((camper:Camper) => {return <CamperCard key={camper.id} image={camper.image} heading={camper.name}/>})
-                : <p>Nothing to show...</p>
+                : <p className="text-center text-3xl mt-[3rem]">Nothing to show...</p>
             }
         </div>
     )
